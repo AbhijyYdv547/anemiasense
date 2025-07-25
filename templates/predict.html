@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anemia Predictor: Predict</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .result-background {
+            background-color: beige;
+            color: black;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .result-overlay {
+            background-color: rgba(0, 0, 0, 0.2); 
+        }
+        .section-padding {
+            padding: 4rem 2rem;
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-100 text-gray-800">
+
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center rounded-b-lg">
+        <div class="text-2xl font-bold text-red-600">Anemia</div>
+        <div class="flex items-center space-x-6">
+            <a href="{{ url_for('home') }}" class="text-gray-700 hover:text-red-600 font-semibold">Home</a>
+            <a href="{{ url_for('home') }}#about-section" class="text-gray-700 hover:text-red-600 font-semibold">About</a>
+            <a href="{{ url_for('predict') }}" class="text-red-600 font-bold">Predict</a>
+            <a href="#contact-section" class="text-gray-700 hover:text-red-600 font-semibold">Contact</a>
+            <a href="#" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition duration-300 shadow-md">Check</a>
+        </div>
+    </nav>
+
+    <section class="section-padding bg-white mx-4 mt-8 rounded-lg shadow-lg">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-red-600 mb-6 text-center">Enter the details:</h2>
+            <form action="{{ url_for('predict') }}" method="post" class="space-y-4">
+                <div>
+                    <label for="Gender" class="block text-gray-700 font-medium mb-1">Gender (Male/Female):</label>
+                    <input type="text" id="Gender" name="Gender" required
+                           class="w-full p-3 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500 shadow-sm">
+                </div>
+                <div>
+                    <label for="Hemoglobin" class="block text-gray-700 font-medium mb-1">Hemoglobin (g/dL):</label>
+                    <input type="text" id="Hemoglobin" name="Hemoglobin" required
+                           class="w-full p-3 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500 shadow-sm">
+                </div>
+                <div>
+                    <label for="MCH" class="block text-gray-700 font-medium mb-1">MCH (pg):</label>
+                    <input type="text" id="MCH" name="MCH" required
+                           class="w-full p-3 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500 shadow-sm">
+                </div>
+                <div>
+                    <label for="MCHC" class="block text-gray-700 font-medium mb-1">MCHC (g/dL):</label>
+                    <input type="text" id="MCHC" name="MCHC" required
+                           class="w-full p-3 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500 shadow-sm">
+                </div>
+                <div>
+                    <label for="MCV" class="block text-gray-700 font-medium mb-1">MCV (fL):</label>
+                    <input type="text" id="MCV" name="MCV" required
+                           class="w-full p-3 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500 shadow-sm">
+                </div>
+                <button type="submit"
+                        class="w-full bg-red-600 text-white p-3 rounded-md font-semibold hover:bg-red-700 transition duration-300 shadow-md">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </section>
+
+    {% if prediction_text %}
+    <section class="result-background h-[30vh] flex items-center justify-center text-center text-white rounded-lg mx-4 mt-8 shadow-lg">
+        <div class="result-overlay absolute inset-0 rounded-lg"></div>
+        <div class="relative z-10 p-8">
+            <h2 class="text-4xl font-extrabold mb-2 text-black">Result</h2>
+            <p class="text-xl font-light text-black">{{ prediction_text }}</p>
+        </div>
+    </section>
+    {% endif %}
+
+    <section id="contact-section" class="section-padding bg-white mx-4 my-8 rounded-lg shadow-lg">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-red-600 mb-6">Contact Us</h2>
+            <div class="text-gray-700 space-y-2">
+                <p><strong>The Smart Bridge</strong></p>
+                <p>Hyderabad, Telangana, India</p>
+                <p>Phone: +1 3589 55488 55</p>
+                <p>Email: info@example.com</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

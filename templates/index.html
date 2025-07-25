@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anemia Predictor: Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-background {
+            color: black;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.4); 
+        }
+        .section-padding {
+            padding: 4rem 2rem; 
+        }
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #ef4444; 
+            color: white;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-100 text-gray-800">
+
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center rounded-b-lg">
+        <div class="text-2xl font-bold text-red-600">Anemia</div>
+        <div class="flex items-center space-x-6">
+            <a href="{{ url_for('home') }}" class="text-gray-700 hover:text-red-600 font-semibold">Home</a>
+            <a href="#about-section" class="text-gray-700 hover:text-red-600 font-semibold">About</a>
+            <a href="{{ url_for('predict') }}" class="text-gray-700 hover:text-red-600 font-semibold">Predict</a>
+            <a href="#contact-section" class="text-gray-700 hover:text-red-600 font-semibold">Contact</a>
+            <a href="#" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition duration-300 shadow-md">Check</a>
+        </div>
+    </nav>
+
+    <header class="hero-background h-[60vh] flex items-center justify-center text-center text-white rounded-lg mx-4 mt-4 shadow-lg">
+        <div class="hero-overlay absolute inset-0 rounded-lg"></div>
+        <div class="relative z-10 p-8">
+            <h1 class="text-5xl font-extrabold mb-4 leading-tight">Anemia Predictor: Your Health Guardian</h1>
+            <p class="text-xl font-light">Empowering you with early detection for better management and healthier living</p>
+        </div>
+    </header>
+
+    <section id="about-section" class="section-padding bg-white mx-4 mt-8 rounded-lg shadow-lg">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-1 p-6 bg-gray-50 rounded-lg shadow-md flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold text-red-600 mb-4">About</h2>
+                        <p class="text-gray-700 leading-relaxed">
+                            Anemia: low red blood cells or hemoglobin, causing oxygen shortage.
+                            Symptoms: fatigue, weakness, shortness of breath, pale skin.
+                            Causes: nutritional deficiencies, diseases, blood loss. Treatments vary.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-droplet"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Hemoglobin</h3>
+                    <p class="text-gray-700 text-sm">
+                        Hemoglobin, a protein in red blood cells, transports oxygen and carbon dioxide.
+                        Healthy ranges: Men: 13.2-16.6 g/dL, Women: 11.6-15 g/dL.
+                    </p>
+                </div>
+
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart-2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">MCH</h3>
+                    <p class="text-gray-700 text-sm">
+                        An MCH value refers to the average quantity of hemoglobin present in a single red blood cell.
+                        The normal range for MCH is between 27.5 and 33.2 picograms (pg).
+                    </p>
+                </div>
+
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thermometer"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">MCHC</h3>
+                    <p class="text-gray-700 text-sm">
+                        The mean corpuscular hemoglobin concentration is average concentration of hemoglobin in red blood cells.
+                        The normal range: 33.4 - 35.5g/dL.
+                    </p>
+                </div>
+
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">MCV</h3>
+                    <p class="text-gray-700 text-sm">
+                        An MCV blood test measures the average size of red blood cells.
+                        The normal range for MCV is between 80 to 100 femtoliter.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-section" class="section-padding bg-white mx-4 my-8 rounded-lg shadow-lg">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-red-600 mb-6">Contact Us</h2>
+            <div class="text-gray-700 space-y-2">
+                <p><strong>The Smart Bridge</strong></p>
+                <p>Hyderabad, Telangana, India</p>
+                <p>Phone: +1 3589 55488 55</p>
+                <p>Email: info@example.com</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
